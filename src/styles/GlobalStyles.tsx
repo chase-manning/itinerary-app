@@ -6,6 +6,16 @@ const GlobalStyle = createGlobalStyle`
         --main: black;
         --sub: grey;
         --primary: blue;
+
+        --activity: #ffffa9;
+        --train: #cb9fc8;
+        --flight: #9edae5;
+        --bus: #fdc0a6;
+        --walk: #f09eb2;
+        --hotel: #bec5e8;
+        --drive: #aae9d3;
+        --sleep: #ece9e3;
+        --backup: #fd8089;
     }
 
     * {
@@ -13,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-size: 10px;
+        font-family: "Roboto", sans-serif;
     }
 
     div {
