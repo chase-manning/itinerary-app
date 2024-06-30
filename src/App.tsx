@@ -13,8 +13,8 @@ const StyledApp = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 100dvh;
-  padding: 2rem;
   background: var(--bg);
+  padding: 2rem 0;
 `;
 
 const ItineraryItemsContainer = styled.div`
@@ -31,7 +31,8 @@ const ItineraryItems = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
+  padding: 0 2rem;
 `;
 
 const App = () => {
