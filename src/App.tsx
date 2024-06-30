@@ -2,8 +2,9 @@ import styled from "styled-components";
 import Search from "./components/Search";
 import Dates from "./components/Dates";
 import { useState } from "react";
-import ITINERARY from "./app/itinerary";
+import { PersonType } from "./app/itinerary";
 import ItineraryItem from "./components/ItineraryItem";
+import useItinerary from "./app/use-itinerary";
 
 const StyledApp = styled.div`
   width: 100%;
@@ -12,6 +13,8 @@ const StyledApp = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 100dvh;
+  padding: 2rem;
+  background: var(--bg);
 `;
 
 const ItineraryItemsContainer = styled.div`
@@ -28,20 +31,21 @@ const ItineraryItems = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
 `;
 
 const App = () => {
   const [search, setSearch] = useState("");
-
   const dates = ["Today", "Tomorrow", "Next Week"];
   const [active, setActive] = useState(dates[0]);
+  const itinerary = useItinerary(PersonType.Chase);
 
   return (
     <StyledApp>
       <Search value={search} setValue={setSearch} />
       <ItineraryItemsContainer>
         <ItineraryItems>
-          {ITINERARY.map((itinerary, index) => (
+          {itinerary.map((itinerary, index) => (
             <ItineraryItem key={index} itinerary={itinerary} />
           ))}
         </ItineraryItems>
