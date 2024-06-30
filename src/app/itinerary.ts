@@ -36,7 +36,7 @@ const ITINERARY: Itinerary[] = [
   {
     title: "Flight to Lisbon",
     type: ItineraryType.Flight,
-    fixedStart: 1800,
+    fixedStart: 1700,
     fixedDuration: 120,
     attendees: [PersonType.Chase, PersonType.Lien],
   },
