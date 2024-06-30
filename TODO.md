@@ -1,0 +1,7 @@
+- Hello Chase
+- Profile Icon (button to change person)
+- Search
+- Designs
+- Date functionality
+- Favicon
+- OG Image
