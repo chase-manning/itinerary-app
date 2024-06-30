@@ -1,3 +1,4 @@
+import addMinutes from "./addMinutes";
 import ITINERARY, { Itinerary, ItineraryType, PersonType } from "./itinerary";
 
 const useItinerary = (person: PersonType) => {
@@ -32,10 +33,10 @@ const useItinerary = (person: PersonType) => {
         if (previous.fixedDuration === undefined) {
           throw new Error("Previous itinerary item must have a fixed duration");
         }
-        const durationHours = Math.floor(previous.fixedDuration / 60);
-        const durationMinutes = previous.fixedDuration % 60;
-        newItem.fixedStart =
-          previous.fixedStart + durationHours * 100 + durationMinutes;
+        newItem.fixedStart = addMinutes(
+          previous.fixedStart!,
+          previous.fixedDuration
+        );
       }
     }
     if (newItem.fixedDuration === undefined) {
