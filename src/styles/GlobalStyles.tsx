@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
         --hotel: #bec5e8;
         --drive: #aae9d3;
         --sleep: #ece9e3;
-        --backup: #fd8089;
+        --food: #fd8089;
     }
 
     * {

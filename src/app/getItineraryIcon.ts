@@ -8,6 +8,7 @@ import partyIcon from "../assets/itinerary-types/party.svg";
 import sleepIcon from "../assets/itinerary-types/sleep.svg";
 import subwayIcon from "../assets/itinerary-types/subway.svg";
 import walkingIcon from "../assets/itinerary-types/walking.svg";
+import foodIcon from "../assets/itinerary-types/food.svg";
 
 const getItineraryIcon = (type: ItineraryType) => {
   if (type === ItineraryType.Flight) return planeIcon;
@@ -19,6 +20,7 @@ const getItineraryIcon = (type: ItineraryType) => {
   if (type === ItineraryType.Sleep) return sleepIcon;
   if (type === ItineraryType.Train) return subwayIcon;
   if (type === ItineraryType.Bus) return busIcon;
+  if (type === ItineraryType.Food) return foodIcon;
   throw new Error("Invalid itinerary type");
 };
 

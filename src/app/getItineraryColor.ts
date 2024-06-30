@@ -10,6 +10,7 @@ const getItineraryColor = (type: ItineraryType) => {
   if (type === ItineraryType.Sleep) return "var(--sleep)";
   if (type === ItineraryType.Train) return "var(--train)";
   if (type === ItineraryType.Bus) return "var(--bus)";
+  if (type === ItineraryType.Food) return "var(--food)";
   throw new Error("Invalid itinerary type");
 };
 

@@ -17,6 +17,7 @@ export enum ItineraryType {
   Train = "Train",
   Activity = "Activity",
   Sleep = "Sleep",
+  Food = "Food",
 }
 
 export interface Itinerary {
@@ -26,7 +27,10 @@ export interface Itinerary {
   fixedDuration?: number; // Duration in minutes
   recommendedDuration?: number; // Duration in minutes
   attendees: PersonType[];
+  day?: number;
 }
+
+export const START_DAY = new Date(2024, 29, 8);
 
 const ITINERARY: Itinerary[] = [
   {
@@ -63,7 +67,7 @@ const ITINERARY: Itinerary[] = [
   {
     title: "Dinner at De Terra",
     type: ItineraryType.Activity,
-    fixedStart: 2000,
+    fixedStart: 2100,
     recommendedDuration: 120,
     attendees: [PersonType.Chase, PersonType.Lien],
   },
@@ -76,7 +80,14 @@ const ITINERARY: Itinerary[] = [
   {
     title: "Sleep",
     type: ItineraryType.Sleep,
-    recommendedDuration: 60 * 8,
+    recommendedDuration: 60 * 10,
+    attendees: [PersonType.Chase, PersonType.Lien],
+  },
+  {
+    title: "Breakfast at Hotel",
+    type: ItineraryType.Food,
+    fixedStart: 900,
+    recommendedDuration: 120,
     attendees: [PersonType.Chase, PersonType.Lien],
   },
 ];
