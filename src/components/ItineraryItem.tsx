@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { Itinerary } from "../app/itinerary";
 import getItineraryIcon from "../app/getItineraryIcon";
+import getItineraryColor from "../app/getItineraryColor";
 
-const StyledItineraryItem = styled.div`
+const StyledItineraryItem = styled.div<{ itinerary: Itinerary }>`
   width: 100%;
   height: 5rem;
   display: flex;
@@ -10,6 +11,8 @@ const StyledItineraryItem = styled.div`
   justify-content: space-between;
   align-items: center;
   border-bottom: solid 1px var(--sub);
+
+  background: ${({ itinerary }) => getItineraryColor(itinerary.type)};
 `;
 
 const TextSection = styled.div`
@@ -47,7 +50,7 @@ interface Props {
 
 const ItineraryItem = ({ itinerary }: Props) => {
   return (
-    <StyledItineraryItem>
+    <StyledItineraryItem itinerary={itinerary}>
       <TextSection>
         <Header>{itinerary.title}</Header>
         <Time>{itinerary.fixedDuration}</Time>
