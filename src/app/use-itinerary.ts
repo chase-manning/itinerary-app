@@ -1,4 +1,4 @@
-import addMinutes from "./addMinutes";
+import addMinutes, { timeToMinutes } from "./addMinutes";
 import ITINERARY, { Itinerary, ItineraryType, PersonType } from "./itinerary";
 
 const useItinerary = (person: PersonType) => {
@@ -45,9 +45,11 @@ const useItinerary = (person: PersonType) => {
       let totalDuration = 0;
       for (let j = i; j < itinearyDetailed.length; j++) {
         if (j !== i && itinearyDetailed[j].fixedStart !== undefined) {
-          totalDuration = itinearyDetailed[j].fixedStart! - newItem.fixedStart;
+          totalDuration =
+            timeToMinutes(itinearyDetailed[j].fixedStart!) -
+            timeToMinutes(newItem.fixedStart);
           if (itinearyDetailed[j].day !== newItem.day) {
-            totalDuration += 2400;
+            totalDuration += 60 * 24;
           }
           break;
         }
