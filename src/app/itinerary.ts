@@ -66,7 +66,7 @@ const ITINERARY: Itinerary[] = [
   },
   {
     title: "Dinner at De Terra",
-    type: ItineraryType.Activity,
+    type: ItineraryType.Food,
     fixedStart: 2100,
     recommendedDuration: 120,
     attendees: [PersonType.Chase, PersonType.Lien],
