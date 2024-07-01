@@ -30,7 +30,7 @@ export interface Itinerary {
   day?: number;
 }
 
-export const START_DAY = new Date(2024, 29, 8);
+export const START_DAY = new Date(2024, 8, 29);
 
 const ITINERARY: Itinerary[] = [
   {
