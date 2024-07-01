@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Search from "./components/Search";
+import Header from "./components/Header";
 import Dates from "./components/Dates";
 import { useState } from "react";
 import { PersonType, START_DAY } from "./app/itinerary";
@@ -32,8 +32,8 @@ const ItineraryItems = styled.div`
 `;
 
 const App = () => {
-  const [search, setSearch] = useState("");
-  const itinerary = useItinerary(PersonType.Chase);
+  const [person, setPerson] = useState<PersonType | null>(null);
+  const itinerary = useItinerary(person);
   const allDates = itinerary.map((itinerary) => itinerary.day!);
   const dates = [...new Set(allDates)];
   const now = new Date();
@@ -45,7 +45,7 @@ const App = () => {
 
   return (
     <StyledApp>
-      <Search value={search} setValue={setSearch} />
+      <Header person={PersonType.Chase} />
       <ItineraryItemsContainer>
         <ItineraryItems>
           {itinerary
