@@ -1,3 +1,2 @@
-- Favicon
-- OG Image
 - Activity links
+- Add the itinerary
