@@ -52,11 +52,7 @@ interface Props {
 const PersonSelection = ({ person, setPerson }: Props) => {
   if (person) return null;
 
-  // Get enum values
-  const personKeys = Object.keys(PersonType);
   const personValues = Object.values(PersonType);
-  console.log("personKeys", personKeys);
-  console.log("personValues", personValues);
 
   return (
     <StyledPersonSection>
