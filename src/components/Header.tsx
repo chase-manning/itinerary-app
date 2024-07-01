@@ -20,10 +20,13 @@ const ProfilePicButton = styled.button`
   cursor: pointer;
   border-radius: 50%;
   overflow: hidden;
+  height: 4rem;
+  width: 4rem;
 `;
 
 const ProfilePic = styled.img`
-  height: 4rem;
+  width: 100%;
+  height: 100%;
 `;
 
 interface Props {
