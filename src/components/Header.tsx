@@ -31,13 +31,14 @@ const ProfilePic = styled.img`
 
 interface Props {
   person: PersonType;
+  setPerson: (person: PersonType | null) => void;
 }
 
-const Header = ({ person }: Props) => {
+const Header = ({ person, setPerson }: Props) => {
   return (
     <StyledHeader>
       <Hello>{`Hello, ${person}!`}</Hello>
-      <ProfilePicButton>
+      <ProfilePicButton onClick={() => setPerson(null)}>
         <ProfilePic src={getPersonPfp(person)} />
       </ProfilePicButton>
     </StyledHeader>

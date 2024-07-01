@@ -46,7 +46,7 @@ const App = () => {
 
   return (
     <StyledApp>
-      {person && <Header person={person} />}
+      {person && <Header person={person} setPerson={setPerson} />}
       <ItineraryItemsContainer>
         <ItineraryItems>
           {itinerary

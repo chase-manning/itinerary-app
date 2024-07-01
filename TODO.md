@@ -1,6 +1,3 @@
-- Hello Chase
-- Profile Icon (button to change person)
 - Favicon
 - OG Image
-- User selection
 - Activity links
