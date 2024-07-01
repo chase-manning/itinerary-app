@@ -5,6 +5,7 @@ import { useState } from "react";
 import { PersonType, START_DAY } from "./app/itinerary";
 import ItineraryItem from "./components/ItineraryItem";
 import useItinerary from "./app/use-itinerary";
+import PersonSelection from "./components/PersonSelection";
 
 const StyledApp = styled.div`
   width: 100%;
@@ -45,7 +46,7 @@ const App = () => {
 
   return (
     <StyledApp>
-      <Header person={PersonType.Chase} />
+      {person && <Header person={person} />}
       <ItineraryItemsContainer>
         <ItineraryItems>
           {itinerary
@@ -56,6 +57,7 @@ const App = () => {
         </ItineraryItems>
       </ItineraryItemsContainer>
       <Dates active={active} dates={dates} setActive={setActive} />
+      <PersonSelection person={person} setPerson={setPerson} />
     </StyledApp>
   );
 };
