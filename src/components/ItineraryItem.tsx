@@ -5,7 +5,7 @@ import getItineraryColor from "../app/getItineraryColor";
 import formatTime from "../app/formatTime";
 import addMinutes from "../app/addMinutes";
 
-const StyledItineraryItem = styled.div<{ itinerary: Itinerary }>`
+const StyledItineraryItem = styled.a<{ itinerary: Itinerary }>`
   width: 100%;
   height: 11.5rem;
   display: flex;
@@ -87,7 +87,11 @@ const ItineraryItem = ({ itinerary }: Props) => {
   };
 
   return (
-    <StyledItineraryItem itinerary={itinerary}>
+    <StyledItineraryItem
+      itinerary={itinerary}
+      href={itinerary.link}
+      target="_blank"
+    >
       <TextSection>
         <Header>{itinerary.title}</Header>
         <TextSubSection>
