@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
         --bg: white;
         --main: rgba(0,0,0,0.7);
         --sub: grey;
-        --primary: blue;
+        --primary: #16adcc;
 
         --activity: #ffffa9;
         --train: #cb9fc8;
