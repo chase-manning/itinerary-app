@@ -21,6 +21,7 @@ const ItineraryItemsContainer = styled.div`
   width: 100%;
   overflow-y: auto;
   height: calc(100dvh - 16rem);
+  padding-bottom: 2rem;
 `;
 
 const ItineraryItems = styled.div`
