@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const StyledSearch = styled.div`
   width: 100%;
-  height: 4rem;
+  height: 8rem;
   display: flex;
   padding: 0 1rem;
   justify-content: center;
