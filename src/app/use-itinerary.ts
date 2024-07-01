@@ -1,7 +1,8 @@
 import addMinutes, { timeToMinutes } from "./addMinutes";
 import ITINERARY, { Itinerary, ItineraryType, PersonType } from "./itinerary";
 
-const useItinerary = (person: PersonType) => {
+const useItinerary = (person: PersonType | null) => {
+  if (person === null) return [];
   const itinearyDetailed: Itinerary[] = [];
 
   let day: number | undefined = 0;
