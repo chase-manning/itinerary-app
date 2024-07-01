@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Search from "./components/Search";
 import Dates from "./components/Dates";
 import { useState } from "react";
-import { PersonType } from "./app/itinerary";
+import { PersonType, START_DAY } from "./app/itinerary";
 import ItineraryItem from "./components/ItineraryItem";
 import useItinerary from "./app/use-itinerary";
 
@@ -14,16 +14,12 @@ const StyledApp = styled.div`
   align-items: center;
   min-height: 100dvh;
   background: var(--bg);
-  padding: 2rem 0;
 `;
 
 const ItineraryItemsContainer = styled.div`
   width: 100%;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
   overflow-y: auto;
+  height: calc(100dvh - 16rem);
 `;
 
 const ItineraryItems = styled.div`
@@ -37,18 +33,26 @@ const ItineraryItems = styled.div`
 
 const App = () => {
   const [search, setSearch] = useState("");
-  const dates = ["Today", "Tomorrow", "Next Week"];
-  const [active, setActive] = useState(dates[0]);
   const itinerary = useItinerary(PersonType.Chase);
+  const allDates = itinerary.map((itinerary) => itinerary.day!);
+  const dates = [...new Set(allDates)];
+  const now = new Date();
+  const daysSinceStart = Math.floor(
+    (now.getTime() - START_DAY.getTime()) / (1000 * 60 * 60 * 24)
+  );
+  const onTrip = dates.includes(daysSinceStart);
+  const [active, setActive] = useState(onTrip ? daysSinceStart : 0);
 
   return (
     <StyledApp>
       <Search value={search} setValue={setSearch} />
       <ItineraryItemsContainer>
         <ItineraryItems>
-          {itinerary.map((itinerary, index) => (
-            <ItineraryItem key={index} itinerary={itinerary} />
-          ))}
+          {itinerary
+            .filter((itinerary) => itinerary.day === active)
+            .map((itinerary, index) => (
+              <ItineraryItem key={index} itinerary={itinerary} />
+            ))}
         </ItineraryItems>
       </ItineraryItemsContainer>
       <Dates active={active} dates={dates} setActive={setActive} />
