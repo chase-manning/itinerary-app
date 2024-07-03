@@ -103,7 +103,9 @@ const ItineraryItem = ({ itinerary }: Props) => {
             addMinutes(itinerary.fixedStart!, itinerary.fixedDuration!)
           )} (${
             Math.floor(itinerary.fixedDuration! / 60) > 0
-              ? `${Math.floor(itinerary.fixedDuration! / 60)}h `
+              ? Math.floor(itinerary.fixedDuration! / 60) > 24
+                ? `${Math.floor(itinerary.fixedDuration! / 60) - 24}h `
+                : `${Math.floor(itinerary.fixedDuration! / 60)}h `
               : ""
           }${
             Math.round((itinerary.fixedDuration! % 60) / 5) * 5
