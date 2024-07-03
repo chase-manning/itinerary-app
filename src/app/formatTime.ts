@@ -5,6 +5,7 @@ const formatTime = (time: number): string => {
   minutes = Math.round(minutes / 5) * 5;
   const ampm = hours >= 12 ? "pm" : "am";
   hours = hours % 12;
+  hours = hours ? hours : 12;
   return `${hours}:${minutes.toString().padStart(2, "0")} ${ampm}`;
 };
 
